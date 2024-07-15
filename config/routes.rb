@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post "applications/:application_id/chats" => "/chat", to: "chat#create"
 
   get "applications/:application_id/chats/:chat_id/messages" => "/message", to: "message#list"
+  post "applications/:application_id/chats/:chat_id/messages" => "/message", to: "message#create"
 
   # Defines the root path route ("/")
   # root "posts#index"
