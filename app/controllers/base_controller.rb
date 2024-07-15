@@ -3,6 +3,10 @@ class BaseController < ActionController::API
         respond(200, message, data)
     end
 
+    def respond_created_successfully(message, data)
+        respond(201, message, data)
+    end
+
     def respond_not_found(message)
         respond(401, message, {})
     end
