@@ -4,9 +4,12 @@ class ApplicationController < BaseController
 
         application_name = params[:application_name]
 
+        application_record = Application.new(uuid: Application.generate_uuid, name: application_name)
+        application_record.save
+
         respond_created_successfully('Created Successfully', {
-          id: "5839e194-5272-42dd-9fb6-157eb7be5e70",
-          application_name: application_name
+          id: application_record.uuid,
+          application_name: application_record.name
         })
     end
 end
