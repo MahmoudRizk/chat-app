@@ -1,16 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+first_application:
   id: 1
   uuid: "5839e194-5272-42dd-9fb6-157eb7be5e70"
   name: "Application 1"
 
-two:
+second_application:
   id: 2
   uuid: "105b03ca-1bcb-4f74-8953-46c0abcff05b"
   name: "Application 2"
 
-three:
+third_application:
   id: 3
   uuid: "14f984ac-f8ff-4979-92f2-d3bb688a80fd"
   name: "Application 3"
