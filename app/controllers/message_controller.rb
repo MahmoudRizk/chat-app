@@ -3,10 +3,19 @@ class MessageController < BaseController
     application_id = params[:application_id]
     chat_id = params[:chat_id]
 
+    # Optional search param.
+    search_param = params[:search]
+
     application = Application.find_by uuid: application_id
     chat = Chat.includes(:messages).find_by application_id: application.id, count_in_application: chat_id
 
-    data = chat.nil? ? []: chat.messages.map do |message|
+    messages = Message.where(chat_id: chat.id)
+
+    if search_param.present?
+      messages = messages.where("name LIKE ?", "%#{search_param}%")
+    end
+
+    data = messages.nil? ? []: messages.map do |message|
       {
         id: message.count_in_chat,
         name: message.name
@@ -37,5 +46,4 @@ class MessageController < BaseController
     respond_created_successfully("Message created successfully", data)
 
   end
-
 end
