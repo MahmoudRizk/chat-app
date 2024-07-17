@@ -4,13 +4,16 @@ first_application:
   id: 1
   uuid: "5839e194-5272-42dd-9fb6-157eb7be5e70"
   name: "Application 1"
+  chats_count: 1
 
 second_application:
   id: 2
   uuid: "105b03ca-1bcb-4f74-8953-46c0abcff05b"
   name: "Application 2"
+  chats_count: 1
 
 third_application:
   id: 3
   uuid: "14f984ac-f8ff-4979-92f2-d3bb688a80fd"
   name: "Application 3"
+  chats_count: 2
