@@ -2,6 +2,7 @@ class Chat < ApplicationRecord
   before_save :set_count_in_application
 
   belongs_to :application
+  has_many :messages, dependent: :destroy
 
   validates :name, presence: true
   validates :application_id, presence: true

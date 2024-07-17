@@ -3,16 +3,15 @@ class MessageController < BaseController
     application_id = params[:application_id]
     chat_id = params[:chat_id]
 
-    data = [
+    application = Application.find_by uuid: application_id
+    chat = Chat.includes(:messages).find_by application_id: application.id, count_in_application: chat_id
+
+    data = chat.nil? ? []: chat.messages.map do |message|
       {
-        id: 1,
-        name: "message 1"
-      },
-      {
-        id: 2,
-        name: "message 2"
+        id: message.count_in_chat,
+        name: message.name
       }
-    ]
+    end
 
     respond_success('List of messages fetched successfully', data)
   end
@@ -24,9 +23,15 @@ class MessageController < BaseController
     chat_id = params[:chat_id]
     message_name = params[:message_name]
 
+    application = Application.find_by uuid: application_id
+    chat = Chat.find_by application_id: application.id, count_in_application: chat_id
+
+    message = Message.new(chat_id: chat.id, name: message_name)
+    message.save
+
     data = {
-      id: 1,
-      name: "message 1"
+      id: message.count_in_chat,
+      name: message.name
     }
 
     respond_created_successfully("Message created successfully", data)
