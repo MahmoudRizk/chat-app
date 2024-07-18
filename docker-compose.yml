@@ -1,0 +1,36 @@
+version: "3"
+services:
+  app:
+    user: 1000:1000
+    container_name: "Chat-app"
+    networks:
+      - chat-app-network
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/rails
+    links:
+      - "db"
+    depends_on:
+      - "db"
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+    working_dir: /rails
+    restart: always
+
+  db:
+    container_name: "Chat-app-db"
+    networks:
+      - chat-app-network
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+    ports:
+      - "33060:3306"
+
+networks:
+  chat-app-network:
+
