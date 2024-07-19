@@ -20,10 +20,37 @@ def set_chat_counts_from_db_to_redis(redis)
 
 end
 
+def flush_message_counts_from_redis_to_db(redis)
+  chats = Chat.all
+  chats.each do |chat|
+    key = Chat.get_redis_key(chat.application.uuid, chat.count_in_application)
+    if redis.exists(key) != 0
+      chat.messages_count = redis.get(key)
+      chat.save
+
+      redis.del(key)
+    end
+  end
+
+end
+
+def flush_message_counts_from_db_to_redis(redis)
+  chats = Chat.all
+  chats.each do |chat|
+    key = Chat.get_redis_key(chat.application.uuid, chat.count_in_application)
+    redis.set(key, chat.messages_count)
+  end
+
+end
+
 def initialize_redis_cache
   redis_client = RedisClientFactory.get_client
+
   flush_chat_counts_from_redis_to_db(redis_client)
   set_chat_counts_from_db_to_redis(redis_client)
+
+  flush_message_counts_from_redis_to_db(redis_client)
+  flush_message_counts_from_db_to_redis(redis_client)
 end
 
 Rails.application.config.after_initialize do

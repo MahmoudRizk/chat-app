@@ -35,7 +35,10 @@ class MessageController < BaseController
     application = Application.find_by uuid: application_id
     chat = Chat.find_by application_id: application.id, count_in_application: chat_id
 
-    message = Message.new(chat_id: chat.id, name: message_name)
+    message_sequence_generator = MessageSequenceGenerator.new(application_id, chat_id)
+    message_number = message_sequence_generator.get_message_number
+
+    message = Message.new(chat_id: chat.id, name: message_name, count_in_chat: message_number)
     message.save
 
     data = {
