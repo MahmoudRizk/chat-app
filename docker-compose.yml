@@ -14,6 +14,7 @@ services:
       - "db"
     depends_on:
       - "db"
+      - "redis"
     ports:
       - "3000:3000"
     environment:
@@ -30,6 +31,14 @@ services:
       MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
     ports:
       - "33060:3306"
+
+  redis:
+    container_name: "Chat-app-redis"
+    networks:
+      - chat-app-network
+    image: redis:7.0-alpine
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
 
 networks:
   chat-app-network:
