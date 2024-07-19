@@ -7,4 +7,8 @@ class Application < ApplicationRecord
   def self.generate_uuid
     SecureRandom.uuid
   end
+
+  def self.get_redis_key(application_global_id)
+    "application:#{application_global_id}:chats_count"
+  end
 end
