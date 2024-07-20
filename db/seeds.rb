@@ -16,10 +16,10 @@ Application.create!([
 
 
 Chat.create!([
-   { id: 1, name: "Application 1 first chat", :application_id => 1, count_in_application: 1, messages_count: 3},
-   { id: 2, name: "Application 2 first chat", :application_id => 2, count_in_application: 1, messages_count: 3},
-   { id: 3, name: "Application 3 first chat", :application_id => 3, count_in_application: 1, messages_count: 3},
-   { id: 4, name: "Application 3 second chat", :application_id => 3, count_in_application: 2, messages_count: 3},
+   { id: 1, name: "Application 1 first chat", :application_id => 1, chat_number: 1, messages_count: 3},
+   { id: 2, name: "Application 2 first chat", :application_id => 2, chat_number: 1, messages_count: 3},
+   { id: 3, name: "Application 3 first chat", :application_id => 3, chat_number: 1, messages_count: 3},
+   { id: 4, name: "Application 3 second chat", :application_id => 3, chat_number: 2, messages_count: 3},
  ])
 
 

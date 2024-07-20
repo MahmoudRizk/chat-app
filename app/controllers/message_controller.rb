@@ -7,7 +7,7 @@ class MessageController < BaseController
     search_param = params[:search]
 
     application = Application.find_by uuid: application_id
-    chat = Chat.includes(:messages).find_by application_id: application.id, count_in_application: chat_id
+    chat = Chat.includes(:messages).find_by application_id: application.id, chat_number: chat_id
 
     messages = Message.where(chat_id: chat.id)
 
@@ -33,7 +33,7 @@ class MessageController < BaseController
     message_name = params[:message_name]
 
     application = Application.find_by uuid: application_id
-    chat = Chat.find_by application_id: application.id, count_in_application: chat_id
+    chat = Chat.find_by application_id: application.id, chat_number: chat_id
 
     message_sequence_generator = MessageSequenceGenerator.new(application_id, chat_id)
     message_number = message_sequence_generator.get_message_number

@@ -28,7 +28,7 @@ def flush_message_counts_from_redis_to_db(redis, delete_keys=true)
   puts "Flushing Messages count from redis to db"
   chats = Chat.all
   chats.each do |chat|
-    key = Chat.get_redis_key(chat.application.uuid, chat.count_in_application)
+    key = Chat.get_redis_key(chat.application.uuid, chat.chat_number)
     if redis.exists(key) != 0
       chat.messages_count = redis.get(key)
       chat.save
@@ -45,7 +45,7 @@ end
 def flush_message_counts_from_db_to_redis(redis)
   chats = Chat.all
   chats.each do |chat|
-    key = Chat.get_redis_key(chat.application.uuid, chat.count_in_application)
+    key = Chat.get_redis_key(chat.application.uuid, chat.chat_number)
     redis.set(key, chat.messages_count)
   end
 
