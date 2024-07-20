@@ -9,11 +9,21 @@ class MessageController < BaseController
     application = Application.find_by uuid: application_id
     chat = Chat.includes(:messages).find_by application_id: application.id, chat_number: chat_id
 
-    messages = Message.where(chat_id: chat.id)
-
-    if search_param.present?
-      messages = messages.where("name LIKE ?", "%#{search_param}%")
+    if search_param.nil?
+      messages = Message.where(chat_id: chat.id)
+    else
+      messages = Message.__elasticsearch__.search({
+        query: {
+          bool: {
+            must: [
+              {match: {chat_id: chat.id}},
+              { "query_string": { "query": search_param, "fields": ["name"] } }
+            ]
+          }
+        }
+      }).results
     end
+
 
     data = messages.nil? ? []: messages.map do |message|
       {

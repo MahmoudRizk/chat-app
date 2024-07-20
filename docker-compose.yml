@@ -15,6 +15,7 @@ services:
     depends_on:
       - "db"
       - "redis"
+      - "elasticsearch"
     ports:
       - "3000:3000"
     environment:
@@ -39,6 +40,20 @@ services:
     image: redis:7.0-alpine
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
+
+  elasticsearch:
+    container_name: "Chat-app-elasticsearch"
+    networks:
+      - chat-app-network
+    image: elasticsearch:8.14.3
+    environment:
+      - cluster.routing.allocation.disk.threshold_enabled=false
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
 
 networks:
   chat-app-network:
