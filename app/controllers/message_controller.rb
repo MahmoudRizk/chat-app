@@ -17,7 +17,7 @@ class MessageController < BaseController
 
     data = messages.nil? ? []: messages.map do |message|
       {
-        id: message.count_in_chat,
+        id: message.message_number,
         name: message.name
       }
     end
@@ -38,11 +38,11 @@ class MessageController < BaseController
     message_sequence_generator = MessageSequenceGenerator.new(application_id, chat_id)
     message_number = message_sequence_generator.get_message_number
 
-    message = Message.new(chat_id: chat.id, name: message_name, count_in_chat: message_number)
+    message = Message.new(chat_id: chat.id, name: message_name, message_number: message_number)
     message.save
 
     data = {
-      id: message.count_in_chat,
+      id: message.message_number,
       name: message.name
     }
 

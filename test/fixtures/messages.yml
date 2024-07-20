@@ -2,70 +2,70 @@ first_application_chat_1_message_1:
   id: 1
   name: "Application 1 Chat 1 first message"
   chat_id: 1
-  count_in_chat: 1
+  message_number: 1
 
 first_application_chat_1_message_2:
   id: 2
   name: "Application 1 Chat 1 second message"
   chat_id: 1
-  count_in_chat: 2
+  message_number: 2
 
 first_application_chat_1_message_3:
   id: 3
   name: "Application 1 Chat 1 third message"
   chat_id: 1
-  count_in_chat: 3
+  message_number: 3
 
 second_application_chat_1_message_1:
   id: 4
   name: "Application 2 Chat 1 first message"
   chat_id: 2
-  count_in_chat: 1
+  message_number: 1
 
 second_application_chat_1_message_2:
   id: 5
   name: "Application 2 Chat 1 second message"
   chat_id: 2
-  count_in_chat: 2
+  message_number: 2
 
 second_application_chat_1_message_3:
   id: 6
   name: "Application 2 Chat 1 third message"
   chat_id: 2
-  count_in_chat: 3
+  message_number: 3
 
 third_application_chat_1_message_1:
   id: 7
   name: "Application 3 Chat 1 first message"
   chat_id: 3
-  count_in_chat: 1
+  message_number: 1
 
 third_application_chat_1_message_2:
   id: 8
   name: "Application 3 Chat 1 second message"
   chat_id: 3
-  count_in_chat: 2
+  message_number: 2
 
 third_application_chat_1_message_3:
   id: 9
   name: "Application 3 Chat 1 third message"
   chat_id: 3
-  count_in_chat: 3
+  message_number: 3
 
 third_application_chat_2_message_1:
   id: 10
   name: "Application 3 Chat 2 first message"
   chat_id: 4
-  count_in_chat: 1
+  message_number: 1
 
 third_application_chat_2_message_2:
   id: 11
   name: "Application 3 Chat 2 second message"
   chat_id: 4
-  count_in_chat: 2
+  message_number: 2
 
 third_application_chat_2_message_3:
   id: 12
   name: "Application 3 Chat 2 third message"
   chat_id: 4
-  count_in_chat: 3
+  message_number: 3

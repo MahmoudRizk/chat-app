@@ -3,5 +3,5 @@ class Message < ApplicationRecord
 
   validates :name, presence: true
   validates :chat_id, presence: true
-  validates :count_in_chat, presence: true
+  validates :message_number, presence: true
 end

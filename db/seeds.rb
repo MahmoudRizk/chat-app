@@ -24,16 +24,16 @@ Chat.create!([
 
 
 Message.create!([
-  { id: 1, name: "Application 1 Chat 1 first message", chat_id: 1, count_in_chat: 1},
-  { id: 2, name: "Application 1 Chat 1 second message", chat_id: 1, count_in_chat: 2},
-  { id: 3, name: "Application 1 Chat 1 third message", chat_id: 1, count_in_chat: 3},
-  { id: 4, name: "Application 2 Chat 1 first message", chat_id: 2, count_in_chat: 1},
-  { id: 5, name: "Application 2 Chat 1 second message", chat_id: 2, count_in_chat: 2},
-  { id: 6, name: "Application 2 Chat 1 third message", chat_id: 2, count_in_chat: 3},
-  { id: 7, name: "Application 3 Chat 1 first message", chat_id: 3, count_in_chat: 1},
-  { id: 8, name: "Application 3 Chat 1 second message", chat_id: 3, count_in_chat: 2},
-  { id: 9, name: "Application 3 Chat 1 third message", chat_id: 3, count_in_chat: 3},
-  { id: 10, name: "Application 3 Chat 2 first message", chat_id: 4, count_in_chat: 1},
-  { id: 11, name: "Application 3 Chat 2 second message", chat_id: 4, count_in_chat: 2},
-  { id: 12, name: "Application 3 Chat 2 third message", chat_id: 4, count_in_chat: 3},
+  { id: 1, name: "Application 1 Chat 1 first message", chat_id: 1, message_number: 1},
+  { id: 2, name: "Application 1 Chat 1 second message", chat_id: 1, message_number: 2},
+  { id: 3, name: "Application 1 Chat 1 third message", chat_id: 1, message_number: 3},
+  { id: 4, name: "Application 2 Chat 1 first message", chat_id: 2, message_number: 1},
+  { id: 5, name: "Application 2 Chat 1 second message", chat_id: 2, message_number: 2},
+  { id: 6, name: "Application 2 Chat 1 third message", chat_id: 2, message_number: 3},
+  { id: 7, name: "Application 3 Chat 1 first message", chat_id: 3, message_number: 1},
+  { id: 8, name: "Application 3 Chat 1 second message", chat_id: 3, message_number: 2},
+  { id: 9, name: "Application 3 Chat 1 third message", chat_id: 3, message_number: 3},
+  { id: 10, name: "Application 3 Chat 2 first message", chat_id: 4, message_number: 1},
+  { id: 11, name: "Application 3 Chat 2 second message", chat_id: 4, message_number: 2},
+  { id: 12, name: "Application 3 Chat 2 third message", chat_id: 4, message_number: 3},
 ])

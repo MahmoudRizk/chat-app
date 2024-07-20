@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_20_043500) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_20_055500) do
   create_table "applications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "uuid"
     t.string "name"
@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_20_043500) do
   create_table "messages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "chat_id", null: false
-    t.integer "count_in_chat", null: false
+    t.integer "message_number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chat_id"], name: "index_messages_on_chat_id"
