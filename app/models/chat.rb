@@ -7,6 +7,6 @@ class Chat < ApplicationRecord
   validates :count_in_application, presence: true
 
   def self.get_redis_key(application_global_id, count_in_application)
-    "application:#{application_global_id}:chats_count:#{count_in_application}:messages_count"
+    "application:#{application_global_id}:chat:#{count_in_application}:messages_count"
   end
 end
